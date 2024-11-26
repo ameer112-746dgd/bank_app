@@ -126,6 +126,9 @@ STATIC_URL = '/static/'
 # Where Django will collect static files when running `collectstatic` (only for production)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Additional directories to look for static files in (use this during development)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # or wherever you store your extra static files

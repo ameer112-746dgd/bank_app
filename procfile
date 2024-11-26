@@ -1,2 +1,2 @@
 web: gunicorn
-bank_project.wsgi:application
+gunicorn bank_project.wsgi:application

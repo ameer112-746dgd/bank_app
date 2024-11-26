@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - GTBank</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* General styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #FF7B00;
+            padding: 16px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 75%;
+            max-width: 320px;
+            height: 100%;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 50;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #ff9f00;
+            color: white;
+        }
+
+        /* Responsive styles */
+        @media (min-width: 768px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                color: white;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notice Bar -->
+    <div class="text-black p-5 text-center">
+        <p class="text-xx">Important Notice:</p>
+        <p class="text-xx">
+            Beware of fake websites pretending to be GTBank. Keep your information secure.
+        </p>
+    </div>
+
+    <!-- Header -->
+    <header class="navbar">
+        <!-- Logo or Branding -->
+        <div>
+            {% load static %}
+            <img src="{% static 'images/gt-logo.png' %}" alt="GTBank Logo" class="logo" />
+            <h1 class="text-xl font-bold text-primary ml-2">GTBank</h1>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links">
+            <a href="#">Locate</a>
+            <a href="#">Media</a>
+            <a href="#">Help Centre</a>
+            <a href="#">Security</a>
+            <a href="#" class="text-orange-500"><i class="fas fa-search"></i></a>
+        </nav>
+
+        <!-- Hamburger Menu Button -->
+        <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+        <button onclick="toggleMenu()" aria-label="Close menu" class="self-end text-gray-900 mb-4">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <a href="#">Locate</a>
+        <a href="#">Media</a>
+        <a href="#">Help Centre</a>
+        <a href="#">Security</a>
+        <a href="#"><i class="fas fa-search"></i> Search</a>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const isHidden = mobileMenu.getAttribute('aria-hidden') === 'true';
+            mobileMenu.setAttribute('aria-hidden', !isHidden);
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
+    
+    {% load static %}
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-8 p-6 bg-gray-50 rounded-lg shadow-md">
+        <!-- Left Text Section -->
+        <div class="text-center lg:text-left flex-grow space-y-4">
+            <h1 class="text-4xl lg:text-5xl font-bold text-orange-500 leading-tight">
+                Link your BVN<br>
+                and NIN to<br>
+                keep your<br>
+                account active
+            </h1>
+            <div>
+                <a href="#"
+                    class="bg-red-600 text-white px-6 py-2 rounded-full shadow-lg hover:bg-red-700 hover:shadow-xl transition duration-300 transform hover:scale-105 inline-block">
+                    Link Here &rarr;
+                </a>
+            </div>
+        </div>
+    
+        <!-- Image Section -->
+        <div class="flex-shrink-0">
+            <img src="{% static 'images/bigimage.jpg' %}" alt="GTBank Logo"
+                class="w-64 lg:w-80 h-auto object-cover rounded-lg shadow-md">
+        </div>
+    
+        <!-- Right Section -->
+        <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-sm">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Online Banking</h2>
+            <div class="flex gap-4">
+                <button class="flex-grow bg-gray-200 text-gray-600 font-semibold py-2 rounded-lg hover:bg-gray-300 transition">
+                    Personal
+                </button>
+                <button class="flex-grow bg-gray-200 text-gray-600 font-semibold py-2 rounded-lg hover:bg-gray-300 transition">
+                    Business
+                </button>
+            </div>
+            <button
+                class="bg-[#ff7b00] text-white font-semibold w-full mt-6 py-3 rounded-lg hover:bg-[#e06d00] transition">
+                Login
+            </button>
+            <div class="flex justify-between mt-4 text-sm">
+                <a href="{% url 'register' %}" class="text-orange-500 hover:text-orange-700 font-semibold">
+                    Register
+                </a>
+                <span class="text-gray-400">|</span>
+                <a href="{% url 'login' %}" class="text-orange-500 hover:text-orange-700 font-semibold">
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Innovative Banking Products Section -->
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold text-center mb-4">Innovative Banking Products</h1>
+            <p class="text-center text-muted-foreground mb-8">Tailored to your lifestyle, designed for your personal and business needs.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-card rounded-lg shadow-lg p-4">
+                    {% load static %}
+                    <img src="{% static 'images/open an acct.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
+                    <h2 class="text-lg font-semibold mt-2">Open an Account instantly</h2>
+                    <p class="text-muted-foreground">Need an account? Open an account for your business, your child or yourself in minutes.</p>
+                    <a href="#" class="bg-secondary text-orange-500 hover:bg-secondary/80 px-4 py-2 rounded mt-2 inline-block">Click here to start</a>
+                </div>
+                <div class="bg-card rounded-lg shadow-lg p-4">
+                    {% load static %}
+                    <img src="{% static 'images/gtcrea8.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
+                    <h2 class="text-lg font-semibold mt-2">GTCrea8</h2>
+                    <p class="text-muted-foreground">Free is the new cool. Zero transfer fees. Zero SMS charge. Free ATM Card. Get a GTCrea8 account instantly.</p>
+                    <a href="#" class="bg-secondary text-orange-500 hover:bg-secondary/80 px-4 py-2 rounded mt-2 inline-block">Read More</a>
+                </div>
+                <div class="bg-card rounded-lg shadow-lg p-4">
+                    {% load static %}
+                    <img src="{% static 'images/quickcredit.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
+                    <h2 class="text-lg font-semibold mt-2">Quick Credit</h2>
+                    <p class="text-muted-foreground">Get up to N5 million in credit and pay back in 6-12 months. 2.5% monthly interest rate. No hidden fees.</p>
+                    <a href="#" class="bg-secondary text-orange-500 hover:bg-secondary/80 px-4 py-2 rounded mt-2 inline-block">Click here to start</a>
+                </div>
+                <div class="bg-card rounded-lg shadow-lg p-4">
+                    {% load static %}
+                    <img src="{% static 'images/helpcenter.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
+                    <h2 class="text-lg font-semibold mt-2">Help Center</h2>
+                    <p class="text-muted-foreground">Skip the queues and get all the answers you need right from your phone. Log your dispense errors from your banking app. Check our How-To Guide for quick fixes.</p>
+                    <a href="#" class="bg-secondary text-orange-500 hover:bg-secondary/80 px-4 py-2 rounded mt-2 inline-block">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Initiatives -->
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center">Our Initiatives</h2>
+    <div class="relative overflow-hidden">
+        <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+            <!-- Card 1 -->
+            <div class="bg-card p-4 rounded-lg shadow-lg flex-shrink-0 w-full sm:w-80">
+                <img src="{% static 'images/banner-child-promotingenterprise-foodanddrink.jpg' %}" alt="GTBank Logo" class="w-full h-48 object-cover rounded-t-lg" />
+                <h3 class="text-lg font-bold mt-2">GTCO FOOD DRINK</h3>
+                <p class="text-muted-foreground mt-2">Here's how we're supporting SMEs in the Food Industry</p>
+                <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80 text-sm">Learn More</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-card p-4 rounded-lg shadow-lg flex-shrink-0 w-full sm:w-80">
+                <img src="{% static 'images/fashion-use.jpg' %}" alt="GTBank Logo" class="w-full h-48 object-cover rounded-t-lg" />
+                <h3 class="text-lg font-bold mt-2">GTCO FSHN WKND</h3>
+                <p class="text-muted-foreground mt-2">Here's how we're supporting SMEs in the Fashion Industry</p>
+                <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80 text-sm">Learn More</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-card p-4 rounded-lg shadow-lg flex-shrink-0 w-full sm:w-80">
+                <img src="{% static 'images/Autism.jpg' %}" alt="GTBank Logo" class="w-full h-48 object-cover rounded-t-lg" />
+                <h3 class="text-lg font-bold mt-2">GTCO AUTISM</h3>
+                <p class="text-muted-foreground mt-2">Supporting neurodiversity awareness and inclusion.</p>
+                <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80 text-sm">Learn More</a>
+            </div>
+        </div>
+        <!-- Navigation Buttons -->
+        <div class="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
+            <button id="prev" class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+        </div>
+        <div class="absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
+            <button id="next" class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const carousel = document.getElementById('carousel');
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+    let currentIndex = 0;
+
+    const moveCarousel = (index) => {
+        const carouselWidth = carousel.children[0].offsetWidth;
+        carousel.style.transform = `translateX(-${index * carouselWidth}px)`;
+    };
+
+    const autoSlide = () => {
+        currentIndex = (currentIndex + 1) % carousel.children.length;
+        moveCarousel(currentIndex);
+    };
+
+    let slideInterval = setInterval(autoSlide, 3000);
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % carousel.children.length;
+        moveCarousel(currentIndex);
+        resetInterval();
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;
+        moveCarousel(currentIndex);
+        resetInterval();
+    });
+
+    const resetInterval = () => {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(autoSlide, 3000);
+    };
+
+    carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    carousel.addEventListener('mouseleave', () => slideInterval = setInterval(autoSlide, 3000));
+</script>
+    <!-- Action Links -->
+    <div class="flex flex-wrap justify-center mt-8 gap-4">
+        <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+            <i class="fas fa-map-marker-alt text-2xl sm:text-xl mb-2"></i>
+            <span class="text-sm">Find a Branch</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+            <i class="fas fa-file-download text-2xl sm:text-xl mb-2"></i>
+            <span class="text-sm">Downloads</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+            <i class="fas fa-user-circle text-2xl sm:text-xl mb-2"></i>
+            <span class="text-sm">Self Service</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+            <i class="fas fa-video text-2xl sm:text-xl mb-2"></i>
+            <span class="text-sm">Video Banking</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+            <i class="fas fa-money-bill-wave text-3xl sm:text-2xl mb-2"></i>
+            <span class="text-sm">HabariPay</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+            <i class="fas fa-chart-line text-3xl sm:text-2xl mb-2"></i>
+            <span class="text-sm">Investments</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+            <i class="fas fa-piggy-bank text-3xl sm:text-2xl mb-2"></i>
+            <span class="text-sm">Pension</span>
+        </a>
+    </div>
+</div>
+
+
+        {% comment %} <!--Our Initiatives-->
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-2xl font-semibold mb-6">Our Initiatives</h2>
+            <div class="relative">
+                <div class="flex overflow-hidden">
+                    <div class="flex transition-transform" id="carousel">
+                        <div class="bg-card p-4 rounded-lg shadow-lg mr-4">
+                            {% load static %}
+                            <img src="{% static 'images/banner-child-promotingenterprise-foodanddrink.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
+                            <h3 class="text-lg font-bold">GTCO FOOD DRINK</h3>
+                            <p class="text-muted-foreground">Here's how we're supporting SMEs in the Food Industry</p>
+                            <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80">Learn More</a>
+                        </div>
+                        <div class="bg-card p-4 rounded-lg shadow-lg mr-4">
+                            {% load static %}
+                            <img src="{% static 'images/fashion-use.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
+                            <h3 class="text-lg font-bold">GTCO FOOD DRINK</h3>
+                            <p class="text-muted-foreground">Here's how we're supporting SMEs in the Food Industry</p>
+                            <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80">Learn More</a>
+                        </div>
+                        <div class="bg-card p-4 rounded-lg shadow-lg mr-4 hidden">
+                            {% load static %}
+                            <img src="{% static 'images/Autism.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
+                            <h3 class="text-lg font-bold">GTCO FSHN WKND</h3>
+                            <p class="text-muted-foreground">Enterprise of the sustainable growing fashion industry.</p>
+                            <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute top-1/2 left-0 transform -translate-y-1/2">
+                    <button id="prev" class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-200" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="absolute top-1/2 right-0 transform -translate-y-1/2">
+                    <button id="next" class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <div class="flex flex-wrap justify-center space-x-10 sm:space-x-6 md:space-x-4 space-y-4 sm:space-y-0">
+                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+                        <i class="fas fa-map-marker-alt text-3xl sm:text-2xl mb-2"></i>
+                        Find a Branch
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+                        <i class="fas fa-file-download text-3xl sm:text-2xl mb-2"></i>
+                        Downloads
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+                        <i class="fas fa-user-circle text-3xl sm:text-2xl mb-2"></i>
+                        Self Service
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+                        <i class="fas fa-video text-3xl sm:text-2xl mb-2"></i>
+                        Video Banking
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+                        <i class="fas fa-money-bill-wave text-3xl sm:text-2xl mb-2"></i>
+                        HabariPay
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+                        <i class="fas fa-chart-line text-3xl sm:text-2xl mb-2"></i>
+                        Investments
+                    </a>
+                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
+                        <i class="fas fa-piggy-bank text-3xl sm:text-2xl mb-2"></i>
+                        Pension
+                    </a>
+                </div>
+            </div> {% endcomment %}
+            
+<script>
+    const carousel = document.getElementById('carousel');
+const nextButton = document.getElementById('next');
+const prevButton = document.getElementById('prev');
+
+let currentIndex = 0;
+const items = Array.from(carousel.children);
+const visibleCount = 2; // Number of images to show at a time
+
+function updateCarousel() {
+    // Hide all items
+    items.forEach((item, index) => {
+        item.classList.add('hidden');
+    });
+    
+    // Show only the items that should be visible
+    for (let i = 0; i < visibleCount; i++) {
+        if (currentIndex + i < items.length) {
+            items[currentIndex + i].classList.remove('hidden');
+        }
+    }
+
+    // Update button states
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex + visibleCount >= items.length;
+}
+
+// Next button functionality
+nextButton.addEventListener('click', () => {
+    if (currentIndex + visibleCount < items.length) {
+        currentIndex += visibleCount;
+        updateCarousel();
+    }
+});
+
+// Previous button functionality
+prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex -= visibleCount;
+        updateCarousel();
+    }
+});
+
+// Initial update
+updateCarousel();
+
+</script>        
+<footer class="bg-gray-900 text-white py-12">
+    <!-- Top Section -->
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 pb-8 border-b border-gray-700 px-6">
+        <!-- Personal Section -->
+        <div>
+            <h3 class="font-bold text-lg text-orange-400">Personal</h3>
+            <ul class="mt-4 space-y-2 text-gray-400">
+                <li><a href="#" class="hover:text-white">Savings Account</a></li>
+                <li><a href="#" class="hover:text-white">Current Accounts</a></li>
+                <li><a href="#" class="hover:text-white">Compare Accounts</a></li>
+                <li><a href="#" class="hover:text-white">Cards</a></li>
+                <li><a href="#" class="hover:text-white">Non Resident Nigerian (NRN) Service</a></li>
+                <li><a href="#" class="hover:text-white">Loans</a></li>
+                <li><a href="#" class="hover:text-white">Ways To Bank</a></li>
+                <li><a href="#" class="hover:text-white">Private Banking</a></li>
+            </ul>
+        </div>
+
+        <!-- Business Section -->
+        <div>
+            <h3 class="font-bold text-lg text-orange-400">Business</h3>
+            <ul class="mt-4 space-y-2 text-gray-400">
+                <li><a href="#" class="hover:text-white">Business Banking</a></li>
+                <li><a href="#" class="hover:text-white">Cards</a></li>
+                <li><a href="#" class="hover:text-white">e-Banking Services</a></li>
+                <li><a href="#" class="hover:text-white">Commercial Banking</a></li>
+                <li><a href="#" class="hover:text-white">Corporate Banking</a></li>
+                <li><a href="#" class="hover:text-white">Loans & Advances</a></li>
+                <li><a href="#" class="hover:text-white">SME Banking</a></li>
+                <li><a href="#" class="hover:text-white">HabariPay</a></li>
+            </ul>
+        </div>
+
+        <!-- About Us Section -->
+        <div>
+            <h3 class="font-bold text-lg text-orange-400">About Us</h3>
+            <ul class="mt-4 space-y-2 text-gray-400">
+                <li><a href="#" class="hover:text-white">Our Company</a></li>
+                <li><a href="#" class="hover:text-white">Careers</a></li>
+                <li><a href="#" class="hover:text-white">Corporate Social Responsibility</a></li>
+                <li><a href="#" class="hover:text-white">Investor Relations</a></li>
+                <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                <li><a href="#" class="hover:text-white">Squad by HabariPay</a></li>
+                <li><a href="#" class="hover:text-white">Guaranty Trust Fund Managers</a></li>
+                <li><a href="#" class="hover:text-white">Guaranty Trust Pension Managers</a></li>
+            </ul>
+        </div>
+
+        <!-- Help & Security Section -->
+        <div>
+            <h3 class="font-bold text-lg text-orange-400">Help & Security</h3>
+            <ul class="mt-4 space-y-2 text-gray-400">
+                <li><a href="#" class="hover:text-white">Account Reactivation</a></li>
+                <li><a href="#" class="hover:text-white">Complaints & Enquiries</a></li>
+                <li><a href="#" class="hover:text-white">Customer Feedback Survey</a></li>
+                <li><a href="#" class="hover:text-white">Dispense Error</a></li>
+                <li><a href="#" class="hover:text-white">Help Videos</a></li>
+                <li><a href="#" class="hover:text-white">Self Service</a></li>
+                <li><a href="#" class="hover:text-white">Security Centre</a></li>
+                <li><a href="#" class="hover:text-white">Whistle Blower</a></li>
+            </ul>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div>
+            <h3 class="font-bold text-lg text-orange-400">Quick Links</h3>
+            <ul class="mt-4 space-y-2 text-gray-400">
+                <li><a href="#" class="hover:text-white">Find a Branch/ATM</a></li>
+                <li><a href="#" class="hover:text-white">Banking Forms</a></li>
+                <li><a href="#" class="hover:text-white">BVN Linking Portal</a></li>
+                <li><a href="#" class="hover:text-white">Financial Calculators</a></li>
+                <li><a href="#" class="hover:text-white">iRefer</a></li>
+                <li><a href="#" class="hover:text-white">Media Centre</a></li>
+                <li><a href="#" class="hover:text-white">Internal Links</a></li>
+                <li><a href="#" class="hover:text-white">Video Banking</a></li>
+                <li><a href="#" class="hover:text-white">Open an Account</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bg-gray-800 py-6">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 Guaranty Trust Bank Limited. RC 152321 (Licensed by the Central Bank of Nigeria). All Rights Reserved.</p>
+
+            <!-- Footer Links -->
+            <div class="flex flex-wrap justify-center space-x-6 mt-4 text-sm">
+                <a href="#" class="hover:text-white">Terms & Conditions</a>
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Sitemap</a>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="flex justify-center space-x-4 mt-6">
+                <a href="#" aria-label="Facebook" class="hover:text-white">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" aria-label="Twitter" class="hover:text-white">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" aria-label="Instagram" class="hover:text-white">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="hover:text-white">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu-open');
+        const closeMenu = document.querySelector('.close-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #1c1c1c;
+          margin: 0;
+          padding: 20px;
+          color: #ffffff;
+          animation: fadeIn 0.5s ease-in;
+      }
+  
+      /* Keyframe animations */
+      @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+      }
+  
+      /* Header styling */
+      header {
+          display: flex;
+          align-items: center;
+          background-color: #000000;
+          color: #ffffff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          position: relative;
+      }
+
+      .logo {
+          max-width: 50px;
+          margin-right: 10px;
+      }
+
+      .menu-toggle {
+          display: none;
+          cursor: pointer;
+          font-size: 24px;
+          color: #ffffff;
+          margin-left: auto;
+      }
+
+      nav {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+      }
+      
+      nav a {
+          text-decoration: none;
+          color: #ffffff;
+          transition: color 0.3s;
+      }
+      
+      nav a:hover {
+          color: #ff7f00;
+      }
+      
+      .logout-button {
+          padding: 8px 12px;
+          background-color: #e74c3c;
+          color: #ffffff;
+          border-radius: 5px;
+          text-decoration: none;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+      
+      .logout-button:hover {
+          background-color: #c0392b;
+          transform: scale(1.05);
+      }
+
+      /* Main content styling */
+      main {
+          margin-top: 20px;
+          background-color: #333333;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+          .menu-toggle {
+              display: block;
+          }
+
+          nav {
+              display: none;
+              flex-direction: column;
+              position: absolute;
+              top: 60px;
+              left: 0;
+              width: 100%;
+              background-color: #000000;
+              padding: 10px 0;
+          }
+
+          nav a {
+              padding: 10px;
+              width: 100%;
+              text-align: center;
+              color: #ffffff;
+          }
+
+          nav.show {
+              display: flex;
+          }
+      }
+            
+      nav {
+        margin-left: auto;
+
+    }
+    .quick-links a {
+        padding: 10px 15px;
+        background-color: #ff7f00;
+        color: #ffffff;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    /* Footer styling */
+    footer {
+        margin-top: 20px;
+        text-align: center;
+        color: #888888;
+        font-size: 14px;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) 
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    {% load static %}
+    <img src="{% static 'images/gt-logo.png' %}" alt="GTBank Logo" class="logo" />
+    <h1>Welcome to Your Dashboard</h1>
+    <!-- Menu Toggle Button -->
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    
+    <nav id="navbar">
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Transactions</a>
+        <a href="#">Settings</a>
+        <a class="logout-button" href="{% url 'logout' %}">Logout</a>
+    </nav>
+  </header>  
+  
+  <main>
+      <div class="account-summary">
+          <h2>Your Account Summary</h2>
+          <p>Account Balance: $10,000</p>
+          <p>Account Type: Savings</p>
+          <p>Last Transaction: $150</p>
+      </div>
+      <p>This is your dashboard where you can manage your account.</p>
+
+      <h3>Quick Links</h3>
+      <div class="quick-links">
+          <a href="#">View Statements</a>
+          <a href="#">Transfer Funds</a>
+          <a href="#">Manage Cards</a>
+          <a href="#">Contact Support</a>
+      </div>
+  </main>
+  
+  <footer>
+      <p>&copy; 2024 Your Bank Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+      function toggleMenu() {
+          const nav = document.getElementById("navbar");
+          nav.classList.toggle("show");
+      }
+  </script>
+</body>
+</html>

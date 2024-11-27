@@ -29,11 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*.onrender.com', 'localhost', '127.0.0.1']
 
 
-ALLOWED_HOSTS = ['*']
-
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
-
-
 # Application definition
 
 INSTALLED_APPS = [

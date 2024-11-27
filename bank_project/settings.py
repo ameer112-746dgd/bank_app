@@ -26,9 +26,14 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['bank-app-7ank.onrender.com', 'localhost', '127.0.0.1']
 
-ALLOWED_HOSTS = ['*.onrender.com', 'bank-app-7ank.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    '*.onrender.com',
+    'bank-app-b1qh.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
+
 
 
 

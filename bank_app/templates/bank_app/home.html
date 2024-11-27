@@ -108,7 +108,7 @@
         <!-- Logo or Branding -->
         <div>
             {% load static %}
-            <img src="{% static 'images/gt-logo.png' %}" alt="GTBank Logo" class="logo" />
+            <img src="{% static {{ MEDIA_URL }} 'images/gt-logo.png' %}" alt="GTBank Logo" class="logo" />
             <h1 class="text-xl font-bold text-primary ml-2">GTBank</h1>
         </div>
 

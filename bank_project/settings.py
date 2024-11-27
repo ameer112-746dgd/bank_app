@@ -28,7 +28,8 @@ DEBUG = False
 
 # ALLOWED_HOSTS = ['bank-app-7ank.onrender.com', 'localhost', '127.0.0.1']
 
-ALLOWED_HOSTS = ['*.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*.onrender.com', 'bank-app-7ank.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition

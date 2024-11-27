@@ -7,8 +7,7 @@
     <title>Home - GTBank</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         /* General styles */
         html, body {
@@ -354,84 +353,6 @@
         </a>
     </div>
 </div>
-
-
-        {% comment %} <!--Our Initiatives-->
-        <div class="container mx-auto px-4 py-8">
-            <h2 class="text-2xl font-semibold mb-6">Our Initiatives</h2>
-            <div class="relative">
-                <div class="flex overflow-hidden">
-                    <div class="flex transition-transform" id="carousel">
-                        <div class="bg-card p-4 rounded-lg shadow-lg mr-4">
-                            {% load static %}
-                            <img src="{% static 'images/banner-child-promotingenterprise-foodanddrink.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
-                            <h3 class="text-lg font-bold">GTCO FOOD DRINK</h3>
-                            <p class="text-muted-foreground">Here's how we're supporting SMEs in the Food Industry</p>
-                            <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80">Learn More</a>
-                        </div>
-                        <div class="bg-card p-4 rounded-lg shadow-lg mr-4">
-                            {% load static %}
-                            <img src="{% static 'images/fashion-use.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
-                            <h3 class="text-lg font-bold">GTCO FOOD DRINK</h3>
-                            <p class="text-muted-foreground">Here's how we're supporting SMEs in the Food Industry</p>
-                            <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80">Learn More</a>
-                        </div>
-                        <div class="bg-card p-4 rounded-lg shadow-lg mr-4 hidden">
-                            {% load static %}
-                            <img src="{% static 'images/Autism.jpg' %}" alt="GTBank Logo"class="w-full h-48 object-cover rounded-t-lg" />
-                            <h3 class="text-lg font-bold">GTCO FSHN WKND</h3>
-                            <p class="text-muted-foreground">Enterprise of the sustainable growing fashion industry.</p>
-                            <a href="#" class="mt-4 inline-block bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/80">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute top-1/2 left-0 transform -translate-y-1/2">
-                    <button id="prev" class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-200" disabled>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="absolute top-1/2 right-0 transform -translate-y-1/2">
-                    <button id="next" class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="flex justify-center mt-8">
-                <div class="flex flex-wrap justify-center space-x-10 sm:space-x-6 md:space-x-4 space-y-4 sm:space-y-0">
-                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
-                        <i class="fas fa-map-marker-alt text-3xl sm:text-2xl mb-2"></i>
-                        Find a Branch
-                    </a>
-                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
-                        <i class="fas fa-file-download text-3xl sm:text-2xl mb-2"></i>
-                        Downloads
-                    </a>
-                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
-                        <i class="fas fa-user-circle text-3xl sm:text-2xl mb-2"></i>
-                        Self Service
-                    </a>
-                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
-                        <i class="fas fa-video text-3xl sm:text-2xl mb-2"></i>
-                        Video Banking
-                    </a>
-                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
-                        <i class="fas fa-money-bill-wave text-3xl sm:text-2xl mb-2"></i>
-                        HabariPay
-                    </a>
-                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
-                        <i class="fas fa-chart-line text-3xl sm:text-2xl mb-2"></i>
-                        Investments
-                    </a>
-                    <a href="#" class="flex flex-col items-center text-muted-foreground hover:text-accent transition-transform duration-300">
-                        <i class="fas fa-piggy-bank text-3xl sm:text-2xl mb-2"></i>
-                        Pension
-                    </a>
-                </div>
-            </div> {% endcomment %}
             
 <script>
     const carousel = document.getElementById('carousel');
@@ -571,7 +492,6 @@ updateCarousel();
                 <a href="#" class="hover:text-white">Privacy Policy</a>
                 <a href="#" class="hover:text-white">Sitemap</a>
             </div>
-
             <!-- Social Media Icons -->
             <div class="flex justify-center space-x-4 mt-6">
                 <a href="#" aria-label="Facebook" class="hover:text-white">

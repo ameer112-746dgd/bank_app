@@ -142,6 +142,47 @@
             align-items: flex-start;
             padding: 15px;
         }
+
+        /* General styles for the links */
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.quick-links a {
+    display: block;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1 1 45%; /* Makes each link flexible and responsive */
+    max-width: 200px; /* Sets a maximum width for each link */
+}
+
+.quick-links a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .quick-links a {
+        flex: 1 1 100%; /* Stacks the links on smaller screens */
+        max-width: none; /* Removes the max width restriction */
+        padding: 12px;
+    }
+
+    .quick-links {
+        justify-content: center; /* Center align items on mobile */
+    }
+}
+
     </style>
 </head>
 <body>

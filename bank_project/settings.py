@@ -34,16 +34,6 @@ ALLOWED_HOSTS = ['bank-app-kqh5.onrender.com', 'localhost', '127.0.0.1']
 # ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 
-
-# ALLOWED_HOSTS = [
-#     '*.onrender.com',
-#     'bank-app-b1qh.onrender.com',
-#     'localhost',
-#     '127.0.0.1',
-# ]
-
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -132,21 +122,19 @@ LOGIN_URL = 'login'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-import os
+# settings.py
 
-# URL to use when referring to static files (e.g. in a <link> tag)
-STATIC_URL = '/static/'
+# Static files (CSS, JavaScript, images)
+STATIC_URL = '/static/'  # The URL where static files will be accessible
 
-# Where Django will collect static files when running `collectstatic` (only for production)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Additional directories to look for static files in (use this during development)
+# In development, this is useful for serving static files from the 'static' directory
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # or wherever you store your extra static files
+    os.path.join(BASE_DIR, 'static'),  # Your project-level static folder
 ]
+
+# Directory where static files will be collected for deployment (for production use)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # A different folder for collected files
+
 
 # This should be set to the base directory for your project
 BASE_DIR = Path(__file__).resolve().parent.parent

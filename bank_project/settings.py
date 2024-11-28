@@ -29,8 +29,8 @@ DEBUG = False
 # ALLOWED_HOSTS = ['bank-app-kqh5.onrender.com']
 
 # ALLOWED_HOSTS = ['bank-app-syw5.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost']
 
 
 # ALLOWED_HOSTS = [

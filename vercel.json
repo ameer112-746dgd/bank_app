@@ -4,7 +4,7 @@
       "src": "bank_project/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "150mb", 
+        "maxLambdaSize": "150mb",
         "runtime": "python3.9"
       }
     }
@@ -14,5 +14,10 @@
       "src": "/(.*)",
       "dest": "bank_project/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "bank_project.settings",
+    "SECRET_KEY": "django-insecure-jfjsduy)8mv34o%-)!ffe-ud38(_(y4!@uvfu$tubfawpv(k!k",
+    "AWS_S3_REGION_NAME": "your-region"
+  }
 }

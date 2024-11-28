@@ -18,6 +18,6 @@
   "env": {
     "DJANGO_SETTINGS_MODULE": "bank_project.settings",
     "SECRET_KEY": "django-insecure-jfjsduy)8mv34o%-)!ffe-ud38(_(y4!@uvfu$tubfawpv(k!k",
-    "AWS_S3_REGION_NAME": "your-region"
+    "AWS_S3_REGION_NAME": "af-south-1"
   }
 }
